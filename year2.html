@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <style>
+        .equalDivide tr td {
+            width: 25%;
+        }
+
+        h1.he {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #AB6AFF;
+            text-align: center;
+            border-left: 0;
+            padding: 10px;
+            overflow: hidden;
+            color:white;
+            }
+            
+        #courses {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #courses td, #courses th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #courses tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #courses tr:hover {
+                background-color: #ddd;
+            }
+
+            #courses th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #AB6AFF;
+                color: white;
+            }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .btn-link {
+            background-color: #FF55F6;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="he">PATHFINDER</h1>
+    <br>
+    <h1 style="color:black;">Year 2 (2019 -2020)</h1>
+
+    <form name="myform" method="POST" action="" onsubmit="dosubmit()">
+
+        <table id="courses"  class="equalDivide" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <tr>
+                <th>Fall</th>
+                <th>Winter</th>
+                <th>Spring</th>
+            </tr>
+            <tr>
+                <td>
+                    <select id="ddlCourses_fall_1" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_winter_1" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_spring_1" onchange="getData(this)"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <select id="ddlCourses_fall_2" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_winter_2" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_spring_2" onchange="getData(this)"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <select id="ddlCourses_fall_3" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_winter_3" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_spring_3" onchange="getData(this)"></select>
+                </td>
+            </tr>
+
+        </table>
+
+        <p id="demo"></p>
+
+
+
+
+
+
+        <button type="submit" name="your_name" value="your_value" class="btn-link">Next</button>
+    </form>
+    <script type="text/javascript">
+        var selectedCourses
+        var string = window.location.href;
+        var getit = new Array();
+        getit = string.split("?");
+        var json = unescape(getit[1]);
+
+         obj = JSON.parse(json);
+         selectedCourses = obj.selected_courses;
+
+        function dosubmit() {
+            course_9 = ddlCourses_fall_1.options[ddlCourses_fall_1.selectedIndex];
+            course_10 = ddlCourses_winter_1.options[ddlCourses_winter_1.selectedIndex];
+            course_11 = ddlCourses_spring_1.options[ddlCourses_spring_1.selectedIndex];
+
+            course_12 = ddlCourses_fall_2.options[ddlCourses_fall_2.selectedIndex];
+            course_13 = ddlCourses_winter_2.options[ddlCourses_winter_2.selectedIndex];
+            course_14 = ddlCourses_spring_2.options[ddlCourses_spring_2.selectedIndex];
+
+            course_15= ddlCourses_fall_3.options[ddlCourses_fall_1.selectedIndex];
+            course_16 = ddlCourses_winter_3.options[ddlCourses_winter_3.selectedIndex];
+            course_17 = ddlCourses_spring_3.options[ddlCourses_spring_3.selectedIndex];
+
+           
+            var year2_selectedCourses = [
+          { Course: 0, CourseID: selectedCourses[0].CourseID ,CourseName: selectedCourses[0].CourseName },
+          { Course: 1, CourseID: selectedCourses[1].CourseID, CourseName: selectedCourses[1].CourseName },
+          { Course: 2, CourseID: selectedCourses[2].CourseID, CourseName: selectedCourses[2].CourseName },
+          { Course: 3, CourseID: selectedCourses[3].CourseID, CourseName: selectedCourses[3].CourseName },
+          { Course: 4, CourseID: selectedCourses[4].CourseID, CourseName: selectedCourses[4].CourseName },
+          { Course: 5, CourseID: selectedCourses[5].CourseID, CourseName: selectedCourses[5].CourseName },
+          { Course: 6, CourseID: selectedCourses[6].CourseID, CourseName: selectedCourses[6].CourseName },
+          { Course: 7, CourseID: selectedCourses[7].CourseID, CourseName: selectedCourses[7].CourseName },
+          { Course: 8, CourseID: selectedCourses[8].CourseID, CourseName: selectedCourses[8].CourseName },
+            { Course: 9, CourseID: course_9.value, CourseName: course_9.innerHTML },
+            { Course: 10, CourseID: course_10.value, CourseName: course_10.innerHTML },
+            { Course: 11, CourseID: course_11.value, CourseName: course_11.innerHTML },
+            { Course: 12, CourseID: course_12.value, CourseName: course_12.innerHTML },
+            { Course: 13, CourseID: course_13.value, CourseName: course_13.innerHTML },
+            { Course: 14, CourseID: course_14.value, CourseName: course_14.innerHTML },
+            { Course: 15, CourseID: course_15.value, CourseName: course_15.innerHTML },
+            { Course: 16, CourseID: course_16.value, CourseName: course_16.innerHTML },
+            { Course: 17, CourseID: course_17.value, CourseName: course_17.innerHTML }
+            ];
+
+
+
+
+            var json = JSON.stringify({ "selected_courses": year2_selectedCourses });
+
+            document.myform.action = "final_plan.html?" + json;
+            window.event.returnValue = true;
+
+
+        }
+        var demo = document.getElementById("demo")
+
+        var ddlCourses_fall_1 = document.getElementById("ddlCourses_fall_1")
+        var ddlCourses_fall_2 = document.getElementById("ddlCourses_fall_2")
+        var ddlCourses_fall_3 = document.getElementById("ddlCourses_fall_3")
+
+        var ddlCourses_winter_1 = document.getElementById("ddlCourses_winter_1")
+        var ddlCourses_winter_2 = document.getElementById("ddlCourses_winter_2")
+        var ddlCourses_winter_3 = document.getElementById("ddlCourses_winter_3")
+
+        var ddlCourses_spring_1 = document.getElementById("ddlCourses_spring_1")
+        var ddlCourses_spring_2 = document.getElementById("ddlCourses_spring_2")
+        var ddlCourses_spring_3 = document.getElementById("ddlCourses_spring_3")
+
+        //Build an array containing Courses records.
+        var courses = [
+            { CourseID: 0, Name: "Select a course" },
+            { CourseID: 1, Name: "Math 03A" },
+            { CourseID: 2, Name: "Math 03B" },
+            { CourseID: 3, Name: "Math 04A" },
+            { CourseID: 4, Name: "Math 04B" },
+            { CourseID: 5, Name: "Math 04C" },
+            { CourseID: 6, Name: "PHYS 04A" },
+            { CourseID: 7, Name: "PHYS 04B" },
+            { CourseID: 8, Name: "PHYS 04C" },
+            { CourseID: 9, Name: "CHEM 01A" },
+            { CourseID: 10, Name: "ENG 01A" },
+            { CourseID: 11, Name: "ENG 01B" },
+            { CourseID: 12, Name: "CIS 037A - Introduction to C Programming" },
+            { CourseID: 13, Name: "CIS 043 - Software Development With Java" },
+            { CourseID: 14, Name: "CIS 044 - Introduction to Data Structures Using Java" },
+            { CourseID: 15, Name: "CIS 040 - C++ Programming" },
+            { CourseID: 16, Name: "CIS 039 - Intro to Computer Systems" },
+            { CourseID: 17, Name: "CIS 086 - Web Development with PHP and MySQL" },
+            { CourseID: 18, Name: "CIS 045 Linux Essentials I" }, 
+            { CourseID: 19, Name: "Math 19" }
+        ];
+
+        PopulateDropDownList(ddlCourses_fall_1, courses);
+        PopulateDropDownList(ddlCourses_fall_2, courses);
+        PopulateDropDownList(ddlCourses_fall_3, courses);
+
+        PopulateDropDownList(ddlCourses_winter_1, courses);
+        PopulateDropDownList(ddlCourses_winter_2, courses);
+        PopulateDropDownList(ddlCourses_winter_3, courses);
+
+        PopulateDropDownList(ddlCourses_spring_1, courses);
+        PopulateDropDownList(ddlCourses_spring_2, courses);
+        PopulateDropDownList(ddlCourses_spring_3, courses);
+
+        optionSelection(ddlCourses_fall_1,4)
+        optionSelection(ddlCourses_fall_2,6)
+        optionSelection(ddlCourses_fall_3, 15)
+
+        optionSelection(ddlCourses_winter_1, 5)
+        optionSelection(ddlCourses_winter_2, 7)
+        optionSelection(ddlCourses_winter_3, 17)
+
+        optionSelection(ddlCourses_spring_1, 19)
+        optionSelection(ddlCourses_spring_2, 8)
+        optionSelection(ddlCourses_spring_3, 18)
+
+
+        function optionSelection(ddl, id) {
+            ddl.getElementsByTagName('option')[id].selected = 'selected'
+        }
+
+
+        function PopulateDropDownList(selection, courses) {
+            removeOptions(selection);
+            for (var i = 0; i < courses.length; i++) {
+                var option = document.createElement("OPTION");
+                //Set Courses Name in Text part.
+                option.innerHTML = courses[i].Name;
+                //Set CoursesId in Value part.
+                option.value = courses[i].CourseID;
+                //Add the Option element to DropDownList.
+                selection.options.add(option);
+            }
+        }
+        const removeArrayItem = (arr, itemToRemove) => {
+            return arr.filter(item => item !== itemToRemove)
+        }
+        var selectedValues = [];
+        function getData(dropdown) {
+
+           
+
+        }
+
+        function onClick() {
+           
+        }
+        function PopulateIfNull(ddl, newCourses1) {
+            if (ddl.options[ddl.selectedIndex].value == 0) {
+                PopulateDropDownList(ddl, newCourses1)
+             }
+        }
+
+
+        function removeOptions(selectbox) {
+            var i;
+            for (i = selectbox.options.length - 1 ; i >= 0 ; i--) {
+                selectbox.remove(i);
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

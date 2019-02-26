@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <style>
+        .equalDivide tr td {
+            width: 25%;
+        }
+
+        h1.he {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #AB6AFF;
+            text-align: center;
+            border-left: 0;
+            padding: 10px;
+            overflow: hidden;
+            color:white;
+            }
+
+        #courses {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #courses td, #courses th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #courses tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #courses tr:hover {
+                background-color: #ddd;
+            }
+
+            #courses th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #AB6AFF;
+                color: white;
+            }
+
+        .button {
+            border: none;
+            color: #FF55F6;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .btn-link {
+            background-color: #FF55F6;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+        <h1 class="he">PATHFINDER</h1>
+        <br>
+    <h1 style="color: black;">Year 1 (2018 - 2019)</h1>
+
+    <form name="myform" method="POST" action="" onsubmit="dosubmit()">
+
+        <table id="courses" class="equalDivide" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <tr>
+                <th>Fall</th>
+                <th>Winter</th>
+                <th>Spring</th>
+            </tr>
+            <tr>
+                <td>
+                    <select id="ddlCourses_fall_1" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_winter_1" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_spring_1" onchange="getData(this)"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <select id="ddlCourses_fall_2" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_winter_2" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_spring_2" onchange="getData(this)"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <select id="ddlCourses_fall_3" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_winter_3" onchange="getData(this)"></select>
+                </td>
+                <td>
+                    <select id="ddlCourses_spring_3" onchange="getData(this)"></select>
+                </td>
+            </tr>
+
+        </table>
+
+        <p id="demo"></p>
+
+
+
+
+
+
+        <button type="submit" name="your_name" value="your_value" class="btn-link">Next</button>
+    </form>
+    <script type="text/javascript">
+
+        function dosubmit() {
+            //alert(ddlCourses_fall_1.options[ddlCourses_fall_1.selectedIndex].value)
+            //var selectedValue = ddlCourses_fall_1.options[ddlCourses_fall_1.selectedIndex].value
+            //var selectedValues = [];
+            //selectedValues.push(selectedValue);
+            //selectedValues.push(selectedValue);
+            var fall_1 = ddlCourses_fall_1.options[ddlCourses_fall_1.selectedIndex];
+            var fall_2 = ddlCourses_fall_2.options[ddlCourses_fall_2.selectedIndex];
+            var fall_3 = ddlCourses_fall_3.options[ddlCourses_fall_3.selectedIndex];
+
+            var winter_1 = ddlCourses_winter_1.options[ddlCourses_winter_1.selectedIndex];
+            var winter_2 = ddlCourses_winter_2.options[ddlCourses_winter_2.selectedIndex];
+            var winter_3 = ddlCourses_winter_3.options[ddlCourses_winter_3.selectedIndex];
+
+            var spring_1 = ddlCourses_spring_1.options[ddlCourses_spring_1.selectedIndex];
+            var spring_2 = ddlCourses_spring_2.options[ddlCourses_spring_2.selectedIndex];
+            var spring_3 = ddlCourses_spring_3.options[ddlCourses_spring_3.selectedIndex];
+            var selectedCourses = [
+            { Course: 0, CourseID: fall_1.value, CourseName: fall_1.innerHTML },
+            { Course: 1, CourseID: winter_1.value, CourseName: winter_1.innerHTML },
+            { Course: 2, CourseID: spring_1.value, CourseName: spring_1.innerHTML },
+
+            { Course: 3, CourseID: fall_2.value, CourseName: fall_2.innerHTML },
+            { Course: 4, CourseID: winter_2.value, CourseName: winter_2.innerHTML },
+            { Course: 5, CourseID: spring_2.value, CourseName: spring_2.innerHTML },
+
+            { Course: 6, CourseID: fall_3.value, CourseName: fall_3.innerHTML },
+            { Course: 7, CourseID: winter_3.value, CourseName: winter_3.innerHTML },
+            { Course: 8, CourseID: spring_3.value, CourseName: spring_3.innerHTML },
+
+            { Course: 9, CourseID: "" },
+            { Course: 10, CourseID: "" },
+            { Course: 11, CourseID: "" },
+            { Course: 12, CourseID: "" },
+            { Course: 13, CourseID: "" },
+            { Course: 14, CourseID: "" },
+            { Course: 15, CourseID: "" },
+            { Course: 16, CourseID: "" },
+            { Course: 17, CourseID: "" }
+            ];
+
+            var json = JSON.stringify({ "selected_courses": selectedCourses });
+
+            document.myform.action = "year2.html?" + json;
+            window.event.returnValue = true;
+        }
+        var demo = document.getElementById("demo")
+
+        var ddlCourses_fall_1 = document.getElementById("ddlCourses_fall_1")
+        var ddlCourses_fall_2 = document.getElementById("ddlCourses_fall_2")
+        var ddlCourses_fall_3 = document.getElementById("ddlCourses_fall_3")
+
+        var ddlCourses_winter_1 = document.getElementById("ddlCourses_winter_1")
+        var ddlCourses_winter_2 = document.getElementById("ddlCourses_winter_2")
+        var ddlCourses_winter_3 = document.getElementById("ddlCourses_winter_3")
+
+        var ddlCourses_spring_1 = document.getElementById("ddlCourses_spring_1")
+        var ddlCourses_spring_2 = document.getElementById("ddlCourses_spring_2")
+        var ddlCourses_spring_3 = document.getElementById("ddlCourses_spring_3")
+
+        //Build an array containing Courses records.
+        var courses = [
+            { CourseID: 0, Name: "Select a course" },
+            { CourseID: 1, Name: "Math 03A" },
+            { CourseID: 2, Name: "Math 03B" },
+            { CourseID: 3, Name: "Math 04A" },
+            { CourseID: 4, Name: "Math 04B" },
+            { CourseID: 5, Name: "Math 04C" },
+            { CourseID: 6, Name: "PHYS 04A" },
+            { CourseID: 7, Name: "PHYS 04B" },
+            { CourseID: 8, Name: "PHYS 04C" },
+            { CourseID: 9, Name: "CHEM 01A" },
+            { CourseID: 10, Name: "ENG 01A" },
+            { CourseID: 11, Name: "ENG 01B" },
+            { CourseID: 12, Name: "CIS 037A - Introduction to C Programming" },
+            { CourseID: 13, Name: "CIS 043 - Software Development With Java" },
+            { CourseID: 14, Name: "CIS 044 - Introduction to Data Structures Using Java" },
+            { CourseID: 15, Name: "CIS 040 - C++ Programming" },
+            { CourseID: 16, Name: "CIS 039 - Intro to Computer Systems" },
+            { CourseID: 17, Name: "CIS 086 - Web Development with PHP and MySQL" },
+            { CourseID: 18, Name: "CIS 045 Linux Essentials I" },
+            { CourseID: 19, Name: "Math 19" },
+        ];
+
+        PopulateDropDownList(ddlCourses_fall_1, courses);
+        PopulateDropDownList(ddlCourses_fall_2, courses);
+        PopulateDropDownList(ddlCourses_fall_3, courses);
+
+        PopulateDropDownList(ddlCourses_winter_1, courses);
+        PopulateDropDownList(ddlCourses_winter_2, courses);
+        PopulateDropDownList(ddlCourses_winter_3, courses);
+
+        PopulateDropDownList(ddlCourses_spring_1, courses);
+        PopulateDropDownList(ddlCourses_spring_2, courses);
+        PopulateDropDownList(ddlCourses_spring_3, courses);
+
+        optionSelection(ddlCourses_fall_1, 10)
+        optionSelection(ddlCourses_fall_2, 1)
+        optionSelection(ddlCourses_fall_3, 12)
+
+        optionSelection(ddlCourses_winter_1, 11)
+        optionSelection(ddlCourses_winter_2, 2)
+        optionSelection(ddlCourses_winter_3, 13)
+
+        optionSelection(ddlCourses_spring_1, 9)
+        optionSelection(ddlCourses_spring_2, 3)
+        optionSelection(ddlCourses_spring_3, 14)
+    
+
+        function optionSelection(ddl, id) {
+            ddl.getElementsByTagName('option')[id].selected = 'selected'
+        }
+
+
+
+
+
+        function PopulateDropDownList(selection, courses) {
+            removeOptions(selection);
+            for (var i = 0; i < courses.length; i++) {
+                var option = document.createElement("OPTION");
+                //Set Courses Name in Text part.
+                option.innerHTML = courses[i].Name;
+                //Set CoursesId in Value part.
+                option.value = courses[i].CourseID;
+                //Add the Option element to DropDownList.
+                selection.options.add(option);
+            }
+        }
+        const removeArrayItem = (arr, itemToRemove) => {
+            return arr.filter(item => item !== itemToRemove)
+        }
+        var selectedValues = [];
+        function getData(dropdown) {
+
+            //var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+            //var selectedInnerHTML = dropdown.options[dropdown.selectedIndex].innerHTML;
+            //demo.innerText = "Selected Course: " + selectedInnerHTML + "\n";
+
+            //if (selectedValue != 0) {
+            //    if (!selectedValues.includes(selectedValue)) {
+            //        selectedValues.push(selectedValue);
+            //    }
+
+            //}
+            //else { // equals 0
+
+            //}
+
+
+
+            //for (var i = 0; i < courses.length; i++) {
+            //    //demo.innerText = "courses: " + selectedValues.includes(courses[1].CourseID) + "\n";
+            //    demo.innerText = "courses: " +courses[1].CourseID + "\n";
+            //    //if (!selectedValues.includes(courses[i].CourseID)) {
+            //    //    newCourses.push(courses[i]);
+            //    //}
+            //}
+
+            ////}
+
+            ////for (i = 0 ; i < selectedValues.length ; i++) {
+            ////    selectedIndex = selectedValues[i];
+            ////    for (j = 0 ; j < newCourses.length ; j++) {
+            ////        if (selectedIndex == newCourses[j].CourseID) {
+            ////            newCourses.splice(selectedValue, 1);
+            ////        }
+            ////    }
+            ////}
+
+
+
+
+            ////
+
+            ////if (selectedValue != 0){
+            ////    newCourses.splice(selectedValue, 1);
+            ////}
+
+            //PopulateIfNull(ddlCourses_fall_1, newCourses);
+            //PopulateIfNull(ddlCourses_fall_2, newCourses);
+            //PopulateIfNull(ddlCourses_fall_3, newCourses);
+
+            //PopulateIfNull(ddlCourses_winter_1, newCourses);
+            //PopulateIfNull(ddlCourses_winter_2, newCourses);
+            //PopulateIfNull(ddlCourses_winter_3, newCourses);
+
+            //PopulateIfNull(ddlCourses_spring_1, newCourses);
+            //PopulateIfNull(ddlCourses_spring_2, newCourses);
+            //PopulateIfNull(ddlCourses_spring_3, newCourses);
+
+        }
+
+        function onClick() {
+            //demo.innerText = "--------------------------------\n";
+            //for (i = 0 ; i < selectedValues.length ; i++) {
+            //    demo.innerText += "" + selectedValues[i] + "\n";
+            //}
+            //for (i = 0 ; i < newCourses.length ; i++) {
+            //    demo.innerText += " " + newCourses[i].Name + "\n"
+            //}
+        }
+        function PopulateIfNull(ddl, newCourses1) {
+            if (ddl.options[ddl.selectedIndex].value == 0) {
+                PopulateDropDownList(ddl, newCourses1)
+             }
+        }
+
+
+        function removeOptions(selectbox) {
+            var i;
+            for (i = selectbox.options.length - 1 ; i >= 0 ; i--) {
+                selectbox.remove(i);
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

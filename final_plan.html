@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <style>
+        .equalDivide tr td {
+            width: 25%;
+        }
+
+        h1.he {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #AB6AFF;
+            text-align: center;
+            border-left: 0;
+            padding: 10px;
+            overflow: hidden;
+            color:white;
+            }
+
+        #courses {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #courses td, #courses th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #courses tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #courses tr:hover {
+                background-color: #ddd;
+            }
+
+            #courses th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #AB6AFF;
+                color: white;
+            }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .btn-link {
+            background-color: #FF55F6;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="he">PATHFINDER</h1>
+    <br>
+
+    <h1 style="color:black;">Year 1 (2018 - 2019)</h1>
+
+    <form name="myform" method="POST" action="" onsubmit="dosubmit()">
+
+        <table id="courses"  class="equalDivide" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <tr>
+                <th>Fall</th>
+                <th>Winter</th>
+                <th>Spring</th>
+            </tr>
+            <tr>
+                <td>
+                    <p id="course_0">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_1">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_2">Hello World!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="course_3">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_4">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_5">Hello World!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="course_6">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_7">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_8">Hello World!</p>
+                </td>
+            </tr>
+
+        </table>
+
+        <h1 style="color:black;">Year 2 (2019 - 2020)</h1>
+
+
+        <table id="courses"  class="equalDivide" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <tr>
+                <th>Fall</th>
+                <th>Winter</th>
+                <th>Spring</th>
+            </tr>
+            <tr>
+                <td>
+                    <p id="course_9">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_10">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_11">Hello World!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="course_12">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_13">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_14">Hello World!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="course_15">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_16">Hello World!</p>
+                </td>
+                <td>
+                    <p id="course_17">Hello World!</p>
+                </td>
+            </tr>
+
+        </table>
+
+
+
+        <script type="text/javascript">
+            var selectedCourses
+            var string = window.location.href;
+            var getit = new Array();
+            getit = string.split("?");
+            var json = unescape(getit[1]);
+            obj = JSON.parse(json);
+            selectedCourses = obj.selected_courses;
+            document.getElementById("course_0").innerHTML = selectedCourses[0].CourseName;
+            document.getElementById("course_1").innerHTML = selectedCourses[1].CourseName;
+            document.getElementById("course_2").innerHTML = selectedCourses[2].CourseName;
+
+            document.getElementById("course_3").innerHTML = selectedCourses[3].CourseName;
+            document.getElementById("course_4").innerHTML = selectedCourses[4].CourseName;
+            document.getElementById("course_5").innerHTML = selectedCourses[5].CourseName;
+
+            document.getElementById("course_6").innerHTML = selectedCourses[6].CourseName;
+            document.getElementById("course_7").innerHTML = selectedCourses[7].CourseName;
+            document.getElementById("course_8").innerHTML = selectedCourses[8].CourseName;
+
+
+            document.getElementById("course_9").innerHTML = selectedCourses[9].CourseName;
+            document.getElementById("course_10").innerHTML = selectedCourses[10].CourseName;
+            document.getElementById("course_11").innerHTML = selectedCourses[11].CourseName;
+
+            document.getElementById("course_12").innerHTML = selectedCourses[12].CourseName;
+            document.getElementById("course_13").innerHTML = selectedCourses[13].CourseName;
+            document.getElementById("course_14").innerHTML = selectedCourses[14].CourseName;
+
+            document.getElementById("course_15").innerHTML = selectedCourses[15].CourseName;
+            document.getElementById("course_16").innerHTML = selectedCourses[16].CourseName;
+            document.getElementById("course_17").innerHTML = selectedCourses[17].CourseName;
+
+        </script>
+
+</body>
+</html>
