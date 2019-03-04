@@ -1,2 +1,2 @@
-This is a web application for a student portal that I created for a one day hackathon.
+This is a web application that I created with two teammates for a twenty-four hour hackathon. The application is supposed to be an online student portal that allows them to plan out their two/four year pathway.
 ~Mandeep Singh
